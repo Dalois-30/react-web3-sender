@@ -1,6 +1,17 @@
 require('dotenv').config();
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
+const numberOfAddresses = 1
+const MNEMONIC=process.env.MNEMONIC;
+
+const setupWallet = (url) => {
+  return new HDWalletProvider({
+    mnemonic: MNEMONIC,
+    providerOrUrl: url,
+    numberOfAddresses
+  });
+}
+
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // for more about customizing your Truffle configuration!
@@ -12,9 +23,11 @@ module.exports = {
     },
     aurora: {
       provider: () => setupWallet('https://testnet.aurora.dev'),
-      network_id: 0x4e454153,
+      network_id: '1313161555',
       gas: 10000000,
-      from: '0x6A33382de9f73B846878a57500d055B981229ac4' // CHANGE THIS ADDRESS
+      deploymentPollingInterval: 8000,
+      timeoutBlocks: 500,
+      confirmations: 10,
     },
   },
   compilers: {

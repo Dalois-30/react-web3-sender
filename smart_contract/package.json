@@ -16,10 +16,8 @@
     "compile": "truffle compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "yarn run deploy:development",
-    "deploy:development": "yarn run clean && yarn run compile && export NETWORK='development' && truffle migrate",
-    "deploy:aurora": "yarn run clean && yarn run compile && export NETWORK='aurora' && truffle migrate --network aurora",
-    "deploy:testnet": "yarn run clean && yarn run compile && export NETWORK='testnet' && truffle migrate --network testnet",
-    "deploy:goerli": "yarn run clean && yarn run compile && export NETWORK='goerli' && truffle migrate --network goerli"
+    "deploy:development": "yarn run compile && export NETWORK='development' && truffle migrate",
+    "deploy:aurora": "yarn run compile && export NETWORK='aurora' && truffle migrate --network aurora"
   },
   "author": "",
   "license": "ISC"
