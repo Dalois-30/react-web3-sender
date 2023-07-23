@@ -1,5 +1,6 @@
 require('dotenv').config();
 const HDWalletProvider = require('@truffle/hdwallet-provider');
+// const utils = require('web3-utils')
 
 const numberOfAddresses = 1
 const MNEMONIC=process.env.MNEMONIC;
@@ -29,6 +30,13 @@ module.exports = {
       timeoutBlocks: 500,
       confirmations: 10,
     },
+    goerli: {
+      provider: () => setupWallet(`https://goerli.infura.io/v3/${process.env.INFURA_TOKEN}`),
+      network_id: '5',
+      // from: '0x6A33382de9f73B846878a57500d055B981229ac4',
+      gas: 3 * 1000000,
+      // gasPrice: utils.toWei('8', 'gwei')
+    }
   },
   compilers: {
     solc: {
